@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block body %}
+<h4 style="margin-left:450px;margin-bottom:50px;"><b>Please register and login to enter your todo project</b></h4>
+<a style="margin-left:700px;margin-bottom:20px;" class="btn btn-success" href="{% url 'register' %}">Register</a><br>
+<a style="margin-left:710px;" class="btn btn-warning" href="{% url 'login' %}">Login</a>
+{% endblock %}

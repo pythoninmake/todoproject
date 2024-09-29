@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1 style="color:green;"><b>REGISTERATION</b></h1>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter Username" required><br>
+    <input type="password" name="password" placeholder="Enter Password" required><br>
+    <input type="password" name="password1" placeholder="Confirm Password" required><br>
+    <input class="btn btn-success" type="submit"><br>
+</form>
+{% for msg in messages %}
+<h4 style="color:red;">{{msg}}</h4>
+{% endfor %}
+{% endblock %}

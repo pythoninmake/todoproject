@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <h5 style="color:red;text-align:center;">Hello welcome, create projects do all tasks and enjoy very well.</h5>
+        <div class="col-md-6">
+            <div style="margin-top:35px;" class="card">
+<!--                <div class="card-body" >-->
+     <form method="POST" class="p-3 shadow">
+         {% csrf_token %}
+         <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Taskname" required>
+         </div>
+         <br>
+          <div class="form-group">
+        <input type="text" class="form-control" name="priority" placeholder="Enter your priority" required>
+          </div>
+         <br>
+         <div class="form-group">
+             <input type="date" class="form-control" name="date" placeholder="Enter your date" required>
+         </div>
+         <br>
+         <input type="submit" class="btn btn-success">
+     </form>
+<!--                    </div>-->
+                </div>
+
+
+    </div>
+        <div class="col-md-6">
+            <h3 style="color:red;border-style:groove;border-color:darkblue;border-width:10px;text-align:center;margin-top:35px;margin-bottom:20px;padding:5px;"><u>Task to be completed</u></h3>
+            {% for i in key1 %}
+            <div class="shadow card">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center;color:red;text-transform:uppercase;text-decoration:underline;">{{i.name}}</h5>
+                    <p><b>Priority: {{i.priority}}</b></p>
+                    <p><b>Date: {{i.date}}</b></p>
+                    <a class="btn btn-danger" href="{% url 'delete' i.id %}">Done</a>
+                    <a class="btn btn-success" href="{% url 'update' i.id %}">Update</a>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+</div>
+  </div>
+{% endblock %}
+
